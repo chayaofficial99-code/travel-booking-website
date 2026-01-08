@@ -1,1 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelEase - Your Perfect Travel Companion</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-plane"></i>
+                    <span>TravelEase</span>
+                </a>
+                
+                <div class="nav-menu" id="navMenu">
+                    <ul class="nav-links">
+                        <li><a href="#home" class="active">Home</a></li>
+                        <li><a href="#destinations">Destinations</a></li>
+                        <li><a href="#booking">Book Now</a></li>
+                        <li><a href="#tours">Tours</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#support">Support</a></li>
+                    </ul>
+                    
+                    <div class="nav-actions">
+                        <div class="language-currency">
+                            <select id="languageSelect">
+                                <option value="en">English</option>
+                                <option value="bn">বাংলা</option>
+                                <option value="ar">العربية</option>
+                            </select>
+                            <select id="currencySelect">
+                                <option value="USD">USD</option>
+                                <option value="BDT">BDT</option>
+                                <option value="AED">AED</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-secondary" id="loginBtn">
+                            <i class="fas fa-user"></i> Login
+                        </button>
+                        <button class="btn btn-primary" id="registerBtn">
+                            <i class="fas fa-user-plus"></i> Register
+                        </button>
+                    </div>
+                </div>
+                
+                <button class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
 
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>Discover Amazing Places Around The World</h1>
+                <p>Book flights, hotels, and tour packages with the best prices</p>
+                
+                <!-- Search & Filter System -->
+                <div class="search-container">
+                    <div class="search-tabs">
+                        <button class="tab-btn active" data-tab="flights">
+                            <i class="fas fa-plane"></i> Flights
+                        </button>
+                        <button class="tab-btn" data-tab="hotels">
+                            <i class="fas fa-hotel"></i> Hotels
+                        </button>
+                        <button class="tab-btn" data-tab="packages">
+                            <i class="fas fa-suitcase"></i> Packages
+                        </button>
+                    </div>
+                    
+                    <div class="search-form" id="searchForm">
+                        <div class="form-group">
+                            <label for="destination">
+                                <i class="fas fa-map-marker-alt"></i> Destination
+                            </label>
+                            <input type="text" id="destination" placeholder="Where do you want to go?">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="checkin">
+                                <i class="fas fa-calendar"></i> Check-in
+                            </label>
+                            <input type="date" id="checkin">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="checkout">
+                                <i class="fas fa-calendar"></i> Check-out
+                            </label>
+                            <input type="date" id="checkout">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="travelType">
+                                <i class="fas fa-globe"></i> Travel Type
+                            </label>
+                            <select id="travelType">
+                                <option value="">All Types</option>
+                                <option value="adventure">Adventure</option>
+                                <option value="family">Family</option>
+                                <option value="luxury">Luxury</option>
+                                <option value="religious">Religious</option>
+                                <option value="business">Business</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="budget">
+                                <i class="fas fa-money-bill-wave"></i> Budget
+                            </label>
+                            <select id="budget">
+                                <option value="">Any Budget</option>
+                                <option value="0-500">$0 - $500</option>
+                                <option value="500-1000">$500 - $1000</option>
+                                <option value="1000-2000">$1000 - $2000</option>
+                                <option value="2000+">$2000+</option>
+                            </select>
+                        </div>
+                        
+                        <button class="btn btn-primary btn-search" id="searchBtn">
+                            <i class="fas fa-search"></i> Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Destinations Section -->
+        <section class="section destinations" id="destinations">
+            <div class="container">
+                <h2 class="section-title">Popular Destinations</h2>
+                <div class="destination-grid" id="destinationGrid">
+                    <!-- JavaScript will populate destinations here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking System -->
+        <section class="section booking-section" id="booking">
+            <div class="container">
+                <h2 class="section-title">Book Your Travel</h2>
+                <div class="booking-container">
+                    <div class="booking-options">
+                        <div class="booking-card" data-type="flight">
+                            <i class="fas fa-plane"></i>
+                            <h3>Flight Booking</h3>
+                            <p>Find the best flights at affordable prices</p>
+                            <button class="btn btn-outline" data-booking="flight">Book Now</button>
+                        </div>
+                        <div class="booking-card" data-type="hotel">
+                            <i class="fas fa-hotel"></i>
+                            <h3>Hotel Booking</h3>
+                            <p>Luxury and budget hotels worldwide</p>
+                            <button class="btn btn-outline" data-booking="hotel">Book Now</button>
+                        </div>
+                        <div class="booking-card" data-type="tour">
+                            <i class="fas fa-suitcase-rolling"></i>
+                            <h3>Tour Packages</h3>
+                            <p>All-inclusive travel packages</p>
+                            <button class="btn btn-outline" data-booking="tour">Book Now</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Booking Forms (Initially hidden) -->
+                    <div class="booking-form-container" id="bookingForms">
+                        <!-- Forms will be loaded via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section class="section reviews">
+            <div class="container">
+                <h2 class="section-title">Customer Reviews</h2>
+                <div class="reviews-container">
+                    <div class="overall-rating">
+                        <h3>Overall Rating</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.5/5 from 1,234 reviews</span>
+                        </div>
+                    </div>
+                    
+                    <div class="review-form">
+                        <h3>Add Your Review</h3>
+                        <div class="star-rating">
+                            <span>Rate your experience:</span>
+                            <div class="stars-input">
+                                <i class="far fa-star" data-rating="1"></i>
+                                <i class="far fa-star" data-rating="2"></i>
+                                <i class="far fa-star" data-rating="3"></i>
+                                <i class="far fa-star" data-rating="4"></i>
+                                <i class="far fa-star" data-rating="5"></i>
+                            </div>
+                        </div>
+                        <textarea id="reviewText" placeholder="Share your experience..."></textarea>
+                        <button class="btn btn-primary" id="submitReview">Submit Review</button>
+                    </div>
+                    
+                    <div class="reviews-list" id="reviewsList">
+                        <!-- Reviews will be populated via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section class="section blog" id="blog">
+            <div class="container">
+                <h2 class="section-title">Travel Blog & Guides</h2>
+                <div class="blog-grid">
+                    <div class="blog-card">
+                        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4" alt="Travel Tips">
+                        <div class="blog-content">
+                            <h3>10 Essential Travel Tips for 2024</h3>
+                            <p>Learn how to travel smarter and safer with our expert tips...</p>
+                            <a href="#" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <img src="https://images.unsplash.com/photo-1551632436-cbf8dd35adfa" alt="Budget Travel">
+                        <div class="blog-content">
+                            <h3>Traveling on a Budget</h3>
+                            <p>Discover how to explore the world without breaking the bank...</p>
+                            <a href="#" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customer Support -->
+        <section class="section support" id="support">
+            <div class="container">
+                <h2 class="section-title">24/7 Customer Support</h2>
+                <div class="support-options">
+                    <div class="support-card">
+                        <i class="fas fa-phone-alt"></i>
+                        <h3>Call Us</h3>
+                        <p>+1 (800) 123-4567</p>
+                    </div>
+                    <div class="support-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email Us</h3>
+                        <p>support@travelease.com</p>
+                    </div>
+                    <div class="support-card">
+                        <i class="fas fa-comments"></i>
+                        <h3>Live Chat</h3>
+                        <p>Available 24/7</p>
+                        <button class="btn btn-outline" id="liveChatBtn">Start Chat</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TravelEase</h3>
+                    <p>Making travel easy and accessible for everyone.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#destinations">Destinations</a></li>
+                        <li><a href="#booking">Book Now</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#support">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for travel deals and tips</p>
+                    <form id="newsletterForm">
+                        <input type="email" placeholder="Your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TravelEase. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+                <div class="social-login">
+                    <button class="btn btn-social google">
+                        <i class="fab fa-google"></i> Continue with Google
+                    </button>
+                    <button class="btn btn-social facebook">
+                        <i class="fab fa-facebook"></i> Continue with Facebook
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Create Account</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <input type="text" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Confirm Password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Create Account</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Live Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-header">
+            <h4>Live Chat Support</h4>
+            <button class="close-chat">&times;</button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot">
+                <p>Hello! How can I help you today?</p>
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" placeholder="Type your message..." id="chatInput">
+            <button id="sendChat"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+    <button class="chat-toggle" id="chatToggle">
+        <i class="fas fa-comments"></i>
+    </button>
+
+    <script src="js/main.js"></script>
+    <script src="js/booking.js"></script>
+    <script src="js/user.js"></script>
+</body>
+  </html>
